@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JGANN MAJOK DAH EHH</title>
+    <style>
+        /* Gaya untuk halaman */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Georgia", serif;
+            background-color: #f5efe6; /* Warna dasar soft brown */
+            background-image: 
+                linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+            background-size: 100% 40px, 40px 100%; /* Garis-garis seperti buku catatan */
+            color: #5a3c2b;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        h1 {
+            margin-top: 50px;
+            font-size: 50px;
+            animation: fadeIn 3s ease-in-out;
+            color: #5a3c2b; /* Warna coklat tua */
+            text-shadow: 1px 1px rgba(0, 0, 0, 0.1); /* Sentuhan bayangan halus */
+        }
+
+        p {
+            font-size: 20px;
+            margin: 20px auto;
+            animation: fadeIn 4s ease-in-out;
+            width: 80%;
+            color: #5a3c2b;
+        }
+
+        /* Gaya tombol */
+        .buttons {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .button {
+            display: inline-block;
+            background: #ffdccb; /* Warna pastel pink */
+            color: #5a3c2b;
+            font-size: 18px;
+            padding: 15px 30px;
+            margin: 20px 10px;
+            border: 2px solid #5a3c2b;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .button:hover {
+            background: #ffd1bc;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .button.no {
+            position: relative;
+        }
+
+        /* Animasi Fade-in */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Efek Balon */
+        .bubble {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #ff6f61;
+            border-radius: 50%;
+            animation: pop 0.6s ease-in-out forwards;
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2.5);
+                opacity: 0;
+            }
+        }
+
+        /* Hati yang bergerak */
+        .heart {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: #ff6f61;
+            transform: rotate(45deg);
+            animation: float 5s infinite;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: #ff6f61;
+            border-radius: 50%;
+        }
+
+        .heart:before {
+            top: -25px;
+            left: 0;
+        }
+
+        .heart:after {
+            left: -25px;
+            top: 0;
+        }
+
+        /* Animasi hati */
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(45deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-800px) rotate(45deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>To My AYANGGG ❤️</h1>
+ <p>   
+        HYEE SAYANGG, <br>
+        SORRY EHH SAYANGG atas semua yang berlakuu SORRY FOR EVERYTHINGG SAYANGG. 
+        SAYANG JGAN PILIH NK MAJOK LAGII TAUU NNTI PHONE AYANG ROSAKK HEHEE. 💕
+ </p>    
+
+    <!-- Tombol di tengah -->
+    <div class="buttons">
+        <button class="button yes" id="yesButton" onclick="showMoreLove()">MAAFKAN 💖</button>
+        <button class="button no" id="noButton" onclick="moveButton()">NK MAJOK LAGII HUHH! </button>
+    </div>
+
+    <!-- Kotak untuk pesan tambahan -->
+    <div id="extraMessage" style="display: none; margin-top: 20px; font-size: 20px; animation: fadeIn 3s;">
+        Yay! I'm so happy to know that you feel the same! 💕 DAHH X MAU MAJOK LAGII DAH EHH! 😘
+    </div>
+
+    <!-- Audio -->
+    <audio id="song" autoplay loop>
+        <source src="C:\Users\USER\Music/LDR.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Hati Bergerak -->
+    <script>
+        // Fungsi untuk menampilkan pesan tambahan saat tombol YES ditekan
+        function showMoreLove() {
+            document.getElementById('extraMessage').style.display = 'block';
+            document.getElementById('yesButton').innerText = "HEHEE tq sayangg!! I LOVE YOU SO MUCHH MMUUAHH 💕"; // Ucapan pada tombol YES
+            createBubbles(event); // Tambahkan efek balon
+        }
+
+        // Fungsi untuk membuat efek balon meletup
+        function createBubbles(event) {
+            for (let i = 0; i < 10; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+                bubble.style.left = (event.clientX + Math.random() * 50 - 25) + 'px';
+                bubble.style.top = (event.clientY + Math.random() * 50 - 25) + 'px';
+                document.body.appendChild(bubble);
+
+                // Hapus balon setelah animasi selesai
+                setTimeout(() => bubble.remove(), 600);
+            }
+        }
+
+        // Fungsi untuk memindahkan tombol NO ke posisi acak
+        function moveButton() {
+            const noButton = document.getElementById('noButton');
+            const x = Math.random() * (window.innerWidth - noButton.offsetWidth);
+            const y = Math.random() * (window.innerHeight - noButton.offsetHeight);
+            noButton.style.left = x + 'px';
+            noButton.style.top = y + 'px';
+        }
+
+        // Fungsi untuk hati bergerak
+        function createHeart() {
+            const heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+
+        setInterval(createHeart, 300);
+    </script>
+</body>
+</html>
